@@ -6,7 +6,7 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "2222:22"
+      - "2222:2222"
     volumes:
       - "./data/.ssh:/root/.ssh"
     command: >
