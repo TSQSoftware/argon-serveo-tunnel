@@ -20,4 +20,4 @@ services:
       -https_port=443
       -private_key_path=/root/.ssh/id_ed25519
       -cert_dir=/certs
-      -domain tunnel.57.129.132.234.com
+      -domain ak80gcw8s4g8040kow8o4000.57.129.132.234.sslip.io
