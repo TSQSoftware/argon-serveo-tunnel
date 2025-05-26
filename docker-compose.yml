@@ -21,3 +21,10 @@ services:
       -private_key_path=/root/.ssh/id_ed25519
       -cert_dir=/certs
       -domain twk8ww4gskgoswws8gow4k0k.57.129.132.234.sslip.io
+    labels:
+      - "coolify.managed=true"
+      - "coolify.applicationId=5"
+      - "coolify.type=application"
+      - "traefik.enable=true"
+      - "traefik.http.routers.serveo.rule=Host(`twk8ww4gskgoswws8gow4k0k.57.129.132.234.sslip.io`)"
+      - "traefik.http.routers.serveo.entryPoints=http"
