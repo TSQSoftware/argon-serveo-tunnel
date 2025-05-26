@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  serveo:
+    image: taichunmin/serveo-server:latest
+    tty: true
+    stdin_open: true
+    ports:
+      - "80:80"
+      - "443:443"
+      - "2222:22"
+    volumes:
+      - "./data/etc-letsencrypt/live/certs/fullchain.pem:/certs/letsencrypt.crt"
+      - "./data/etc-letsencrypt/live/certs/privkey.pem:/certs/letsencrypt.key"
+      - "./data/.ssh:/root/.ssh"
+    command: >
+      serveo
+      -port=22
+      -http_port=80
+      -https_port=443
+      -private_key_path=/root/.ssh/id_ed25519
+      -cert_dir=/certs
+      -domain tunnel.57.129.132.234.com
