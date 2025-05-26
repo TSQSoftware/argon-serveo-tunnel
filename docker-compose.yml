@@ -6,8 +6,8 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
+      - "8443:443"
       - "2222:22"
     volumes:
       - "./data/etc-letsencrypt/live/certs/fullchain.pem:/certs/letsencrypt.crt"
