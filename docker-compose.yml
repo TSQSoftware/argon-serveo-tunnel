@@ -6,12 +6,8 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "8888:80"
-      - "8443:443"
       - "2222:22"
     volumes:
-      - "./data/etc-letsencrypt/live/certs/fullchain.pem:/certs/letsencrypt.crt"
-      - "./data/etc-letsencrypt/live/certs/privkey.pem:/certs/letsencrypt.key"
       - "./data/.ssh:/root/.ssh"
     command: >
       serveo
@@ -19,7 +15,6 @@ services:
       -http_port=80
       -https_port=443
       -private_key_path=/root/.ssh/id_ed25519
-      -cert_dir=/certs
       -domain ds48w8sog4o400cgc8wgo800.57.129.132.234.sslip.io
     labels:
       - "coolify.managed=true"
@@ -27,5 +22,5 @@ services:
       - "coolify.type=application"
       - "traefik.enable=true"
       - "traefik.http.routers.serveo.rule=Host(`ds48w8sog4o400cgc8wgo800.57.129.132.234.sslip.io`)"
-      - "traefik.http.routers.serveo.entryPoints=http,https"
+      - "traefik.http.routers.serveo.entrypoints=http,https"
       - "traefik.http.routers.serveo.tls=true"
