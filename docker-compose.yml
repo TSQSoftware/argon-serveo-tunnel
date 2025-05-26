@@ -20,11 +20,12 @@ services:
       -https_port=443
       -private_key_path=/root/.ssh/id_ed25519
       -cert_dir=/certs
-      -domain twk8ww4gskgoswws8gow4k0k.57.129.132.234.sslip.io
+      -domain ds48w8sog4o400cgc8wgo800.57.129.132.234.sslip.io
     labels:
       - "coolify.managed=true"
       - "coolify.applicationId=5"
       - "coolify.type=application"
       - "traefik.enable=true"
-      - "traefik.http.routers.serveo.rule=Host(`twk8ww4gskgoswws8gow4k0k.57.129.132.234.sslip.io`)"
-      - "traefik.http.routers.serveo.entryPoints=http"
+      - "traefik.http.routers.serveo.rule=Host(`ds48w8sog4o400cgc8wgo800.57.129.132.234.sslip.io`)"
+      - "traefik.http.routers.serveo.entryPoints=http,https"
+      - "traefik.http.routers.serveo.tls=true"
